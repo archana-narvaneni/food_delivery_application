@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            p{
+                text-align: center;
+                color: tomato;
+        
+            }
+            tr{
+                background-color: maroon;
+                color: white;
+                text-align: center;
+            }
+            dt{
+                font-weight: bold;
+                background-color: maroon;
+                color: white;
+            }
+        </style>
+        <script>
+            function placeorder(){
+                document.getElementById("order summery").style.display="block";
+                uname=document.getElementById("txtName")
+                mobile=document.getElementById("txtMobile")
+                burger=document.getElementById("optBurger")
+                roller=document.getElementById("optRoller")
+                fries=document.getElementById("optfries")
+                var mcost=0;
+                var acost=0;
+                var mname=" ";
+                var aname=" ";
+                if(burger.checked){
+                    mcost=120;
+                    mname=burger.value;
+
+                }
+                if(roller.checked){
+                    mcost=100;
+                    mname=roller.value;
+
+                }
+                if(fries.checked){
+                    acost=60;
+                    mcost+=acost;
+                    aname +=fries.value+ "<br>";
+
+                }
+                document.getElementById("lblName").innerHTML=uname.value;
+                document.getElementById("lblMobile").innerHTML=mobile.value;
+                document.getElementById("lblMeal").innerHTML=mname;
+                document.getElementById("lbladd").innerHTML=aname;
+                document.getElementById("lblAmount").innerHTML=mcost;
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <font size="6">
+                <table width = "800" border="2" cellspacing="4" cellpadding="4" align ="center" id="orderform">
+                    <tr>
+                        <td colspan="2" >
+                            <p><i>Archana's food</i></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="https://i1.wp.com/www.eatthis.com/wp-content/uploads/media/images/ext/305133437/burger-king-spread.jpg?fit=1024%2C750&ssl=1" height="50" width="100">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">customer details</td>
+                    </tr>
+                    <tr>
+                        <td>customer Name</td>
+                        <td><input type="text" id ="txtName"></td>
+                    </tr>
+                    <tr>
+                        <td>mobile</td>
+                        <td><input type="text" id="txtMobile"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">select a meal</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="https://wallpaperaccess.com/full/2004521.jpg"height="50" width="50">
+                            <br>
+                            <input type ="radio" name="meal" id ="optBurger" value="omgBurger">omgBurger(&#8377;120/-)
+                        </td>
+                        <td>
+                            <img src="https://cdn.winsightmedia.com/platform/files/public/cspdn/main/articles/rollerbites-cheesy-hashbrown-and-sausage-lifestyle-3.jpg" width="50" height="50">
+                            <br>
+                            <input type="radio" name="meal" id ="optRoller" value="omgRoller">omgRoller(&#8377;100/-)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            select Ad-on's 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src ="https://www.thedailymeal.com/sites/default/files/recipe/2018/iStock-687999118_1_.jpg" width="50" height="50">
+                            <br>
+                            <input type="checkbox" id="optfries" value="largefries">largefries(&#8377;60/-)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" value="placeorder" onclick="placeorder()">
+                        </td>
+                    </tr>
+
+                    
+                </table> 
+                <br>
+                <dl id="order summery" style="display:none;">
+                    <h2>order summery</h2>
+                    <dt>customer Name:</dt>
+                    <dd id="lblName"></dd>
+                    <dt>mobile:</dt>
+                    <dd id= "lblMobile"></dd>
+                    <dt>Meal:</dt>
+                    <dd id="lblMeal"></dd>
+                    <dt>AD-on's:</dt>
+                    <dd id="lbladd"></dd>
+                    <dt>total bill amount:</dt>
+                    <dd id="lblAmount"></dd>
+                    <br>
+                    <input type="button" value="print bill" onclick="window.print()">
+                </dl>
+        </div>
+    </body>
+</html>
